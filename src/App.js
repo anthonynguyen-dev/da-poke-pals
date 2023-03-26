@@ -1,6 +1,8 @@
 import './App.css';
 import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
 import { Todos } from './Utils/test'
+import { PokemonContainer } from './containers/pokemonContainer';
+
 
 function App() {
 // adding url for pokeapi
@@ -14,6 +16,7 @@ function App() {
    <ApolloProvider client={client}>
      <main>
        <Todos/>
+       {/* <PokemonContainer> */}
      </main>
 
    </ApolloProvider>
