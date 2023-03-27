@@ -32,5 +32,17 @@ const resolvers = {
 
       return { token, user };
     },
+    addPokemon: async (parent, { pokemonId }, context) => {
+      if (context.user) {
+        return await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { pokeDex: { pokemonId: pokemonId } } },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
+
+module.exports = resolvers;

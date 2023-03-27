@@ -10,6 +10,17 @@ const typeDefs = gql`
   }
 
   type Pokemon {
+    name: String
     type: [String]
+    description: String
+    pokemonId: ID
+    image: String
+    moves: String
+    abilites: String
+    evolutions: String
+  }
+  type Auth {
+    token: ID!
+    user: User
   }
 `;
