@@ -42,6 +42,16 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    deletePokemon: async (parent, { pokemonId }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { pokeDex: { pokemonId: pokemonId } } },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 
