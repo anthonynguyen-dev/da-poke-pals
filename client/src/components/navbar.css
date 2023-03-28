@@ -2,11 +2,15 @@
     width: 100%;
     height: 70px;
     background-color: #B30000;
+    flex-direction: row;
 }
 
 .navbar-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
-
+  justify-content: space-between;
+  
+}
+.pokedex-logo {
+  margin-left: 40%;
 }
