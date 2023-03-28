@@ -2,6 +2,12 @@ import './App.css';
 import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
 import { Todos } from './utils/test'
 import { PokemonContainer } from './containers/pokemonContainer';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import store from './app/store'
+import { Provider } from 'react-redux'
 
 
 function App() {
@@ -12,12 +18,19 @@ function App() {
 
   })
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Todos />,
+    },
+    
+  ]);
+
   return (
    <ApolloProvider client={client}>
-     <main>
-       <Todos/>
-       {/* <PokemonContainer> */}
-     </main>
+    <Provider store={store} >
+     <RouterProvider router={router} />
+    </Provider>
 
    </ApolloProvider>
   );
