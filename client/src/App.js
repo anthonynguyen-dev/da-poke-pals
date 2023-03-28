@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import store from './app/store'
 import { Provider } from 'react-redux'
+import Navbar from './components/Navbar';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
   return (
    <ApolloProvider client={client}>
     <Provider store={store} >
+      <Navbar />
      <RouterProvider router={router} />
     </Provider>
 
