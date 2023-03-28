@@ -1,6 +1,6 @@
 import './App.css';
 import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
-import { Todos } from './Utils/test'
+import { Todos } from './utils/test'
 import { PokemonContainer } from './containers/pokemonContainer';
 
 
