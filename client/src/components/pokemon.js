@@ -1,5 +1,5 @@
 import React from "react";
-import './Card.css'
+import './card.css'
 
 export function Pokemon({ pokemon }) {
     return (
@@ -43,4 +43,4 @@ function Pokemonss({ pokemon, image, url }) { //calling it pokemonss so an error
     );
 }
 
-export default pokemon;
+export default Pokemon;
