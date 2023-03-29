@@ -1,16 +1,44 @@
-import React from 'react'
-import "./landingpage.css"
+import React, { useState } from "react";
+import "./landingpage.css";
 
 function LandingPage() {
+  const types = [
+    "Normal",
+    "Fire",
+    "Water",
+    "Electric",
+    "Grass",
+    "Ice",
+    "Fight",
+    "Poison",
+    "Ground",
+    "Flying",
+    "Psychic",
+    "Bug",
+    "Rock",
+    "Ghost",
+    "Dragon",
+    "Dark",
+    "Steel",
+    "Fairy",
+  ];
+  const [pokemonTypes, setPokemonTypes] = useState(types);
   return (
     <div>
-      <div className='search-container'>
-
-      <input type={"text"} placeholder={"Search..."} className="poke-search" />
+      <div className="search-container">
+        <input
+          type={"text"}
+          placeholder={"Search..."}
+          className="poke-search"
+        />
       </div>
-      
+      <div className="pokemon-types-container">
+        {pokemonTypes.map((type, index) => {
+          return(<button key={index} className="type-icons-btns"><img src={require(`../assets/type-icons/${type}.png`)} /></button>)
+        })}
       </div>
-  )
+    </div>
+  );
 }
 
-export default LandingPage
+export default LandingPage;
