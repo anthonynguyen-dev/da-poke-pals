@@ -2,8 +2,8 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id: ID
-    username: String
+    _id: ID!
+    username: String!
     email: String
     password: String
     pokeDex: [Pokemon]
@@ -15,9 +15,9 @@ const typeDefs = gql`
     description: String
     pokemonId: ID
     image: String
-    moves: String
-    abilites: String
-    evolutions: String
+    moves: [String]
+    abilites: [String]
+    evolutions: [String]
   }
   type Auth {
     token: ID!
@@ -28,7 +28,7 @@ const typeDefs = gql`
   }
 
   input PokemonInput {
-    authors: [String]
+    name: String
     description: String!
     pokemonId: ID!
     image: String

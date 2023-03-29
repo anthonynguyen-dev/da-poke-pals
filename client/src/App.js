@@ -9,9 +9,9 @@ import {
 import store from './app/store'
 import { Provider } from 'react-redux'
 import Navbar from './components/Navbar';
+import LandingPage from './components/LandingPage';
 import Signup from './pages/signtest'
 import Login from './pages/logintest';
-
 
 function App() {
 // adding url for pokeapi
@@ -24,7 +24,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Todos />,
+      element: <LandingPage />,
     },
     
   ]);
@@ -37,7 +37,7 @@ function App() {
       <Signup />
      <RouterProvider router={router} />
     </Provider>
-
+    <PokemonContainer/>
    </ApolloProvider>
   );
 }
