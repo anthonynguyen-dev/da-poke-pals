@@ -33,7 +33,7 @@ function App() {
       <Navbar />
      <RouterProvider router={router} />
     </Provider>
-
+    <PokemonContainer/>
    </ApolloProvider>
   );
 }
