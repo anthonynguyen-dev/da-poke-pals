@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from '@apollo/react-hooks';
 import { GET_POKEMONS } from "../utils/queries";
-import { Pokemon } from "../components/pokemon";
+import { Pokemon } from "../containers/pokemon";
 
 const gVariables = {
     limit: 12,
