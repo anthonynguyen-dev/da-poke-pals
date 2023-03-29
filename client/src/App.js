@@ -9,6 +9,8 @@ import {
 import store from './app/store'
 import { Provider } from 'react-redux'
 import Navbar from './components/Navbar';
+import Signup from './pages/signtest'
+import Login from './pages/logintest';
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
    <ApolloProvider client={client}>
     <Provider store={store} >
       <Navbar />
+      <Login />
+      <Signup />
      <RouterProvider router={router} />
     </Provider>
 
