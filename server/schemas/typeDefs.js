@@ -28,7 +28,7 @@ const typeDefs = gql`
   }
 
   input PokemonInput {
-    authors: [String]
+    name: String
     description: String!
     pokemonId: ID!
     image: String
