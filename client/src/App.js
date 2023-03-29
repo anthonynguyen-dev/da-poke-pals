@@ -9,6 +9,7 @@ import {
 import store from './app/store'
 import { Provider } from 'react-redux'
 import Navbar from './components/Navbar';
+import LandingPage from './components/LandingPage';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Todos />,
+      element: <LandingPage />,
     },
     
   ]);
