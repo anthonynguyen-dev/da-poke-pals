@@ -16,3 +16,34 @@
   justify-content: center;
   margin-top: 30px;
 }
+
+.pokemon-types-container {
+  overflow: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-top: 20px;
+}
+.pokemon-types-container::-webkit-scrollbar {
+  display: none;
+}
+.pokemon-types-container::-webkit-scrollbar:hover {
+  display: block;
+}
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.pokemon-types-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.type-icons-btns img {
+  width: 80px;
+ 
+}
+.type-icons-btns {
+  background-color: transparent;
+  border: 0;
+
+}
