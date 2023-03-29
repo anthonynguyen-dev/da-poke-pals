@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Book } = require("../models");
+const { User, Pokemon } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -33,12 +33,12 @@ const resolvers = {
 
       return { token, user };
     },
-    addPokemon: async (parent, { pokemonId }, context) => {
+    addPokemon: async (parent, { pokemonData }, context) => {
       if (context.user) {
         return await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { pokeDex: { pokemonId: pokemonId } } },
-          { new: true }
+          { $addToSet: { pokeDex: { pokemonId: pokemonData } } },
+          { new: true, runValidators: true }
         );
       }
       throw new AuthenticationError("You need to be logged in!");
