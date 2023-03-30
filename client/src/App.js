@@ -31,12 +31,12 @@ function App() {
 
   return (
    <ApolloProvider client={client}>
-    <Provider store={store} >
+    {/* {// <Provider store={store} >} */}
       <Navbar />
       <Login />
       <Signup />
      <RouterProvider router={router} />
-    </Provider>
+    {/* {</Provider>} */}
     <PokemonContainer/>
    </ApolloProvider>
   );
