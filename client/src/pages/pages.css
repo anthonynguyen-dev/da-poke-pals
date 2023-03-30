@@ -1,0 +1,53 @@
+/* $white: rgba(255, 255, 255, 0.3); */
+
+body {
+    background-image: url("https://i.imgur.com/YXb380a.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-image: 'client/src/assets/gameboy.png';
+    top: 50%;
+    left: 50%;
+}
+
+
+form {
+    padding: 3em;
+    height: 320px;
+    border-radius: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+p {
+    font-weight: 500;
+    color: #fff;
+    opacity: 0.9;
+    font-size: 1.4rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.input:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    }
