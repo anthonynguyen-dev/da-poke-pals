@@ -37,7 +37,7 @@ const resolvers = {
       if (context.user) {
         return await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { pokeDex: { pokemonId: pokemonData } } },
+          { $addToSet: { pokeDex: pokemonData } },
           { new: true, runValidators: true }
         );
       }
