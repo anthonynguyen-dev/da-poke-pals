@@ -30,10 +30,10 @@ function App() {
 
   return (
    <ApolloProvider client={client}>
-    <Provider store={store} >
+    
       <Navbar />
      <RouterProvider router={router} />
-    </Provider>
+    
     <PokemonContainer/>
    </ApolloProvider>
   );

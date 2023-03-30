@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_POKEMONS } from "../utils/queries";
 import { Pokemon } from "../components/pokemon";
 
+// limits the amount of pokemon called by api
 const gVariables = {
     limit: 12,
     offset: 1,
@@ -14,8 +15,8 @@ export function PokemonContainer() {
     });
 
     return (
-        <div className='pokemons'>
-            {console.log(pokemons)}
+        <div className='pokemons' >
+            {pokemons && pokemons.results && pokemons.results.map(pokemon => <Pokemon pokemon={pokemon} key={pokemon.name} />  )}
         </div>
     )
 }
