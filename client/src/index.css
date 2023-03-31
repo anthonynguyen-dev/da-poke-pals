@@ -1,13 +1,29 @@
+@font-face {
+  font-family: "pokemon";
+  src: url("./assets/fonts/PokemonSolid.ttf");
+}
+
+
+
+@font-face {
+  font-family: "pokemon-hollow";
+  src: url("./assets/fonts/PokemonHollow.ttf");
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "pokemon";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+ * {
+  font-family: "pokemon";
+ }
+  
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
