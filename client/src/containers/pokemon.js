@@ -1,7 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import "./pokemon.css";
 
 export function Pokemon({ pokemon }) {
+    const [captured, setCaptured] =useState(false)
+    console.log(captured)
   return (
     <div className="pokemon">
       <div className="pokemonName">
@@ -11,9 +13,9 @@ export function Pokemon({ pokemon }) {
         <img src={pokemon.image} alt="pokemon"></img>
       </div>
       <div className="captured-container">
-        <p>Captured</p>
+        <p className={captured ? "captured-font" : ""}>Captured</p>
         <label class="switch">
-          <input type="checkbox" />
+          <input type="checkbox" onChange={()=> setCaptured(!captured)} checked={captured} />
           <span class="slider round"></span>
         </label>
       </div>
