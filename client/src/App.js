@@ -37,7 +37,7 @@ function App() {
       <Signup />
      <RouterProvider router={router} />
     {/* {</Provider>} */}
-    <PokemonContainer/>
+   
    </ApolloProvider>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { PokemonContainer } from "../containers/pokemonContainer";
 import "./landingpage.css";
 
 function LandingPage() {
@@ -37,6 +38,7 @@ function LandingPage() {
           return(<button key={index} className="type-icons-btns"><img src={require(`../assets/type-icons/${type}.png`)} /></button>)
         })}
       </div>
+      <PokemonContainer/>
     </div>
   );
 }
