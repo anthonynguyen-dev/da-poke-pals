@@ -23,13 +23,9 @@ export const USER_QUERY = gql`
     me {
       _id
       email
-      savedBooks {
-        authors
-        title
-        bookId
-        description
-        image
-        link
+      pokeDex {
+        name
+        pokemonId
       }
       username
     }
