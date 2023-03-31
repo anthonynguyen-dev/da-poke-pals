@@ -29,3 +29,22 @@ export const LOG_IN = gql`
     }
   }
 `;
+
+export const DELETE_POKEMON = gql`
+  mutation DeletePokemon($pokemonId: ID!) {
+    deletePokemon(pokemonId: $pokemonId) {
+      _id
+      username
+      pokeDex {
+        abilites
+        description
+        evolutions
+        image
+        moves
+        name
+        pokemonId
+        type
+      }
+    }
+  }
+`;
