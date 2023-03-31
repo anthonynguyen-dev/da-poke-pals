@@ -1,5 +1,5 @@
-import React from 'react';
-import { gql, useQuery } from '@apollo/client';
+import React from "react";
+import { gql, useQuery } from "@apollo/client";
 
 export const GET_POKEMONS = gql`
   query pokemons($limit: Int, $offset: Int) {
@@ -18,5 +18,16 @@ export const GET_POKEMONS = gql`
   }
 `;
 
-
-
+export const USER_QUERY = gql`
+  query Me {
+    me {
+      _id
+      email
+      pokeDex {
+        name
+        pokemonId
+      }
+      username
+    }
+  }
+`;
