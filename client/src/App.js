@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import LandingPage from './components/LandingPage';
 import Signup from './pages/signtest'
 import Login from './pages/logintest';
+import { PokemonDetails } from './containers/pokemonDetails';
 
 function App() {
 // adding url for pokeapi

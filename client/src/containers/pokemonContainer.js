@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from '@apollo/react-hooks';
 import { GET_POKEMONS } from "../utils/queries";
-import { Pokemon } from "../containers/pokemon";
+import { Pokemon} from "../containers/pokemon";
 
 // limits the amount of pokemon called by api
 const gVariables = {

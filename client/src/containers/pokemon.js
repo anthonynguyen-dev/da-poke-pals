@@ -5,7 +5,7 @@ export function Pokemon({ pokemon }) {
     console.log(pokemon)
     const style = {
         pokemonWrapper: {
-            backgroundColor: 'lightgray',
+            
             flex: '0 0 25%'
         }
     }
