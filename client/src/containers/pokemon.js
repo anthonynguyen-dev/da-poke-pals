@@ -10,10 +10,13 @@ export function Pokemon({ pokemon }) {
       <div className="pokemonImage">
         <img src={pokemon.image} alt="pokemon"></img>
       </div>
-      <label class="switch">
-        <input type="checkbox" />
-        <span class="slider round"></span>
-      </label>
+      <div className="captured-container">
+        <p>Captured</p>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+      </div>
     </div>
   );
 }
