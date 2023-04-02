@@ -26,6 +26,14 @@ function App() {
       path: "/",
       element: <LandingPage />,
     },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/signup",
+      element: <Signup />,
+    },
     
   ]);
 
@@ -33,8 +41,7 @@ function App() {
    <ApolloProvider client={client}>
     {/* {// <Provider store={store} >} */}
       <Navbar />
-      <Login />
-      <Signup />
+    
      <RouterProvider router={router} />
     {/* {</Provider>} */}
    
