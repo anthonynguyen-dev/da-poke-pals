@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import LandingPage from './components/LandingPage';
 import Signup from './pages/signtest'
 import Login from './pages/logintest';
+import { Pokedex } from './containers/pokedex';
 
 function App() {
 // adding url for pokeapi
@@ -33,6 +34,10 @@ function App() {
     {
       path: "/signup",
       element: <Signup />,
+    },
+    {
+      path: "/pokedex",
+      element: <Pokedex />,
     },
     
   ]);
