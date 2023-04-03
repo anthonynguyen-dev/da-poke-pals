@@ -13,4 +13,12 @@
 }
 .pokedex-logo {
   margin-left: 40%;
+  display: flex;
+  align-items: center;
+
+}
+
+.pokedex-logo  span{ 
+  font-size: 28px;
+  margin-right:10px;
 }

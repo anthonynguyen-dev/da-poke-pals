@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import LandingPage from './components/LandingPage';
 import Signup from './pages/signtest'
 import Login from './pages/logintest';
+import { Pokedex } from './containers/pokedex';
 
 function App() {
 // adding url for pokeapi
@@ -26,6 +27,18 @@ function App() {
       path: "/",
       element: <LandingPage />,
     },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/signup",
+      element: <Signup />,
+    },
+    {
+      path: "/pokedex",
+      element: <Pokedex />,
+    },
     
   ]);
 
@@ -33,8 +46,7 @@ function App() {
    <ApolloProvider client={client}>
     {/* {// <Provider store={store} >} */}
       <Navbar />
-      <Login />
-      <Signup />
+    
      <RouterProvider router={router} />
     {/* {</Provider>} */}
    

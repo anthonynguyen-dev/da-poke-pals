@@ -96,6 +96,14 @@ flex-direction: column;
 align-items: center;
 }
 
+
+.captured-font {
+  font-family: "pokemon" !important;
+  color: black;
+  font-weight: 800;
+}
+
+
 .captured-container p{
   font-family: "pokemon-hollow";
   color: black;
