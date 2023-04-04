@@ -13,8 +13,9 @@ export const GET_POKEMONS = gql`
         url
         name
         image
-      
+       
       }
+      
     }
   }
 `;
@@ -38,6 +39,7 @@ query pokemon($name: String!) {
   pokemon(name: $name) {
     id
     name
+   
     sprites {
       front_default
     }
