@@ -3,14 +3,16 @@ import "./pokemon.css";
 
 export function Pokemon({ pokemon }) {
   const [captured, setCaptured] = useState(false);
-  console.log(captured);
+ 
   return (
     <div className="pokemon">
       <div className="pokemonName">
+        {console.log(pokemon.name)}
         <p>{pokemon.name}</p>
       </div>
       <div className="pokemonImage">
-        <img src={pokemon.image} alt="pokemon"></img>
+        {pokemon.image &&
+        <img src={pokemon.image} alt="pokemon"></img>}
       </div>
       {window.location.pathname === "/" && (
         <div className="captured-container">

@@ -24,6 +24,7 @@ function LandingPage() {
     "Fairy",
   ];
   const [pokemonTypes, setPokemonTypes] = useState(types);
+  const [searchPokemon, setSearchPokemon] = useState("")
   return (
     <div>
       <div className="search-container">
@@ -31,6 +32,10 @@ function LandingPage() {
           type={"text"}
           placeholder={"Search..."}
           className="poke-search"
+          value={searchPokemon}
+          onChange={(e)=> {
+            setSearchPokemon(e.target.value)
+          }}
         />
       </div>
       <div className="pokemon-types-container">
@@ -38,7 +43,7 @@ function LandingPage() {
           return(<button key={index} className="type-icons-btns"><img src={require(`../assets/type-icons/${type}.png`)} /></button>)
         })}
       </div>
-      <PokemonContainer/>
+      <PokemonContainer pokeSearch={searchPokemon} />
     </div>
   );
 }

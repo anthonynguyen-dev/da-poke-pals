@@ -13,7 +13,9 @@ export const GET_POKEMONS = gql`
         url
         name
         image
+
       }
+      
     }
   }
 `;
@@ -31,6 +33,7 @@ export const USER_QUERY = gql`
     }
   }
 `;
+
 
 export const GET_MY_POKEMON = gql`
   query Me {
