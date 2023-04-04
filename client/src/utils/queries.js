@@ -13,7 +13,7 @@ export const GET_POKEMONS = gql`
         url
         name
         image
-       
+
       }
       
     }
@@ -34,25 +34,37 @@ export const USER_QUERY = gql`
   }
 `;
 
-export const POKEMON_DETAILS = gql`
-query pokemon($name: String!) {
-  pokemon(name: $name) {
-    id
-    name
-   
-    sprites {
-      front_default
-    }
-    moves {
-      move {
+
+export const GET_MY_POKEMON = gql`
+  query Me {
+    me {
+      pokeDex {
         name
-      }
-    }
-    types {
-      type {
-        name
+        types
+        image
       }
     }
   }
-}
+`;
+
+export const POKEMON_DETAILS = gql`
+  query pokemon($name: String!) {
+    pokemon(name: $name) {
+      id
+      name
+      sprites {
+        front_default
+      }
+      moves {
+        move {
+          name
+        }
+      }
+      types {
+        type {
+          name
+        }
+      }
+    }
+  }
 `;

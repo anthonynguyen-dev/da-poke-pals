@@ -5,18 +5,12 @@ const pokemonSchema = new Schema({
     type: String,
   },
 
-  type: [
-    {
-      type: String,
-    },
-  ],
+  types: [{ type: String, required: true }],
   description: {
     type: String,
-    required: true,
   },
   pokemonId: {
     type: String,
-    required: true,
   },
   image: {
     type: String,

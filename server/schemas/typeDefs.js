@@ -11,7 +11,7 @@ const typeDefs = gql`
 
   type Pokemon {
     name: String
-    type: [String]
+    types: [String]
     description: String
     pokemonId: ID
     image: String
@@ -25,15 +25,14 @@ const typeDefs = gql`
   }
   type Query {
     me: User
+    getMyPokemons: [Pokemon]
   }
 
   input PokemonInput {
-    name: String
-    description: String!
-    pokemonId: ID!
-    image: String
-    link: String
-    title: String!
+    name: String!
+    description: String
+    types: [String!]
+    image: String!
   }
 
   type Mutation {
