@@ -35,6 +35,9 @@ const resolvers = {
       return { token, user };
     },
     addPokemon: async (parent, { pokemonData }, context) => {
+      console.log("inside add pokemon");
+      console.log("pokemonData");
+      console.log(pokemonData);
       if (context.user) {
         return await User.findOneAndUpdate(
           { _id: context.user._id },

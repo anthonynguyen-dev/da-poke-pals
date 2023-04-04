@@ -1,8 +1,20 @@
 import React, { useState } from "react";
 import "./pokemon.css";
+import { useMutation } from "@apollo/client";
+import { ADD_POKEMON } from "../utils/mutations";
 
 export function Pokemon({ pokemon }) {
   const [captured, setCaptured] = useState(false);
+
+  const [addPokemon, { error }] = useMutation(ADD_POKEMON);
+
+  const onCaptureHandler = () => {
+    console.log("inside capture handler");
+    if (!captured) {
+      addPokemon({ variables: { name: pokemon.name, image: pokemon.image } });
+    }
+    setCaptured((prev) => !prev);
+  };
 
   return (
     <div className="pokemon">
@@ -18,7 +30,7 @@ export function Pokemon({ pokemon }) {
           <label class="switch">
             <input
               type="checkbox"
-              onChange={() => setCaptured(!captured)}
+              onChange={() => onCaptureHandler()}
               checked={captured}
             />
             <span class="slider round"></span>

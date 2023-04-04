@@ -27,7 +27,13 @@ export function PokemonContainer({ pokeSearch }) {
     context: { clientName: "pokemonApi" },
   });
 
-  if (pokeSearch !== "" && searchedPokemonData) {
+  if (
+    pokeSearch !== "" &&
+    searchedPokemonData &&
+    searchedPokemonData.pokemon.id
+  ) {
+    console.log("searchedPokemonData");
+    console.log(searchedPokemonData);
     pokemonData = {
       name: searchedPokemonData.pokemon.name,
       image: searchedPokemonData.pokemon.sprites.front_default,
