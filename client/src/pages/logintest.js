@@ -8,8 +8,6 @@ function Logintest() {
   const [login, { error }] = useMutation(LOG_IN);
   const [formState, setFormState] = React.useState({ email: "", password: "" });
 
-  //   console.log(form.current.email);
-
   const handleInputChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
