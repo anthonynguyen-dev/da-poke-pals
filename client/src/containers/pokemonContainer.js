@@ -5,6 +5,7 @@ import { GET_POKEMONS, POKEMON_DETAILS } from "../utils/queries";
 
 import { Pokemon } from "../containers/pokemon";
 import "./pokemonContainer.css";
+import { render } from "react-dom";
 
 // limits the amount of pokemon called by api
 const gVariables = {
@@ -17,31 +18,35 @@ export function PokemonContainer({ pokeSearch }) {
     variables: gVariables,
     context: { clientName: "pokemonApi" },
   });
+  let pokemonData;
 
-  const { data } = useQuery(POKEMON_DETAILS, {
+  const { data: searchedPokemonData } = useQuery(POKEMON_DETAILS, {
     variables: {
       name: pokeSearch,
     },
     context: { clientName: "pokemonApi" },
   });
 
-  console.log("pokemon");
-  console.log(data);
+  if (pokeSearch !== "" && searchedPokemonData) {
+    pokemonData = {
+      name: searchedPokemonData.pokemon.name,
+      image: searchedPokemonData.pokemon.sprites.front_default,
+    };
 
-  const pokemonData = {
-    name: data.pokemon.name,
-    image: data.pokemon.sprites.front_default,
-  };
+    return (
+      <div className="pokemons">
+        <Pokemon pokemon={pokemonData} key={pokemonData} />
+      </div>
+    );
+  }
+
   return (
     <div className="pokemons">
-      {pokeSearch !== ""
-        ? data &&
-          data.pokemon && <Pokemon pokemon={pokemonData} key={pokemonData} />
-        : pokemons &&
-          pokemons.results &&
-          pokemons.results.map((pokemon) => (
-            <Pokemon pokemon={pokemon} key={pokemon.name} />
-          ))}
+      {pokemons &&
+        pokemons.results &&
+        pokemons.results.map((pokemon) => (
+          <Pokemon pokemon={pokemon} key={pokemon.name} />
+        ))}
     </div>
   );
 }
