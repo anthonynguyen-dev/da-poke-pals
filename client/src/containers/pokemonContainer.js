@@ -1,10 +1,11 @@
 import React from "react";
 
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from "@apollo/react-hooks";
 import { GET_POKEMONS, POKEMON_DETAILS } from "../utils/queries";
 
 import { Pokemon } from "../containers/pokemon";
 import "./pokemonContainer.css";
+import { render } from "react-dom";
 
 // limits the amount of pokemon called by api
 const gVariables = {
@@ -12,28 +13,40 @@ const gVariables = {
   offset: 1,
 };
 
+export function PokemonContainer({ pokeSearch }) {
+  const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
+    variables: gVariables,
+    context: { clientName: "pokemonApi" },
+  });
+  let pokemonData;
 
+  const { data: searchedPokemonData } = useQuery(POKEMON_DETAILS, {
+    variables: {
+      name: pokeSearch,
+    },
+    context: { clientName: "pokemonApi" },
+  });
 
-
-export function PokemonContainer({pokeSearch}) {
-    const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-        variables: gVariables,
-    });
-
-    const { data } = useQuery(POKEMON_DETAILS, {
-        variables: {
-            name:pokeSearch
-        },
-    });
-
-
+  if (pokeSearch !== "" && searchedPokemonData) {
+    pokemonData = {
+      name: searchedPokemonData.pokemon.name,
+      image: searchedPokemonData.pokemon.sprites.front_default,
+    };
 
     return (
-        <div className='pokemons' >
-            
-            {pokeSearch!=="" ?  data && data.pokemon &&  <Pokemon pokemon={data.pokemon} key={data.pokemon.name} />  :
-            pokemons && pokemons.results && pokemons.results.map(pokemon => <Pokemon pokemon={pokemon} key={pokemon.name} />  )}
-        </div>
-    )
-}
+      <div className="pokemons">
+        <Pokemon pokemon={pokemonData} key={pokemonData} />
+      </div>
+    );
+  }
 
+  return (
+    <div className="pokemons">
+      {pokemons &&
+        pokemons.results &&
+        pokemons.results.map((pokemon) => (
+          <Pokemon pokemon={pokemon} key={pokemon.name} />
+        ))}
+    </div>
+  );
+}
