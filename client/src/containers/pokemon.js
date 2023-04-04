@@ -3,15 +3,14 @@ import "./pokemon.css";
 import { useMutation } from "@apollo/client";
 import { ADD_POKEMON } from "../utils/mutations";
 
-export function Pokemon({ pokemon }) {
-  const [captured, setCaptured] = useState(false);
+export function Pokemon({ pokemon, have }) {
+  const [captured, setCaptured] = useState(have);
 
   const [addPokemon, { error }] = useMutation(ADD_POKEMON);
 
   const onCaptureHandler = () => {
-    console.log("inside capture handler");
     if (!captured) {
-      addPokemon({ variables: { name: pokemon.name, image: pokemon.image } });
+      addPokemon({ variables: { pokemonData: {name: pokemon.name, image: pokemon.image }} });
     }
     setCaptured((prev) => !prev);
   };

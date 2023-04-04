@@ -5,7 +5,6 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
-      console.log("hitting me");
       if (context.user) {
         return User.findOne({ _id: context.user._id });
       }
@@ -14,7 +13,6 @@ const resolvers = {
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
-      console.log(username, email, password);
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
@@ -35,9 +33,6 @@ const resolvers = {
       return { token, user };
     },
     addPokemon: async (parent, { pokemonData }, context) => {
-      console.log("inside add pokemon");
-      console.log("pokemonData");
-      console.log(pokemonData);
       if (context.user) {
         return await User.findOneAndUpdate(
           { _id: context.user._id },

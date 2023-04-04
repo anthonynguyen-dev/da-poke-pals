@@ -1,14 +1,11 @@
 import { gql } from "@apollo/client";
 
 export const ADD_POKEMON = gql`
-  mutation addPokemon($name: String!, $image: String!) {
-    addPokemon(name: $name, image: $image) {
-      _id
-      username
+  mutation addPokemon($pokemonData: PokemonInput!) {
+    addPokemon(pokemonData: $pokemonData) {
       pokeDex {
         name
-        types
-        description
+        image
       }
     }
   }

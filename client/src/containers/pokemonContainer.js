@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useQuery } from "@apollo/react-hooks";
-import { GET_POKEMONS, POKEMON_DETAILS } from "../utils/queries";
+import { GET_POKEMONS, POKEMON_DETAILS, GET_MY_POKEMON } from "../utils/queries";
 
 import { Pokemon } from "../containers/pokemon";
 import "./pokemonContainer.css";
@@ -18,6 +18,20 @@ export function PokemonContainer({ pokeSearch }) {
     variables: gVariables,
     context: { clientName: "pokemonApi" },
   });
+
+  const [capturedPokemon, setCapturedPokemon] = React.useState([]);
+
+  const { data: myData } = useQuery(GET_MY_POKEMON);
+
+  
+  React.useEffect(() => {
+    console.log(myData?.me?.pokeDex);
+    if (myData) {
+        setCapturedPokemon(myData.me.pokeDex.map(pokemon => pokemon.name));
+      }
+  }, [myData])
+
+ 
   let pokemonData;
 
   const { data: searchedPokemonData } = useQuery(POKEMON_DETAILS, {
@@ -32,8 +46,6 @@ export function PokemonContainer({ pokeSearch }) {
     searchedPokemonData &&
     searchedPokemonData.pokemon.id
   ) {
-    console.log("searchedPokemonData");
-    console.log(searchedPokemonData);
     pokemonData = {
       name: searchedPokemonData.pokemon.name,
       image: searchedPokemonData.pokemon.sprites.front_default,
@@ -41,7 +53,7 @@ export function PokemonContainer({ pokeSearch }) {
 
     return (
       <div className="pokemons">
-        <Pokemon pokemon={pokemonData} key={pokemonData} />
+        <Pokemon pokemon={pokemonData} key={pokemonData} have={capturedPokemon.includes(pokemonData.name)} />
       </div>
     );
   }
@@ -51,7 +63,7 @@ export function PokemonContainer({ pokeSearch }) {
       {pokemons &&
         pokemons.results &&
         pokemons.results.map((pokemon) => (
-          <Pokemon pokemon={pokemon} key={pokemon.name} />
+          <Pokemon pokemon={pokemon} key={pokemon.name} have={capturedPokemon.includes(pokemon.name)} />
         ))}
     </div>
   );

@@ -31,7 +31,7 @@ const typeDefs = gql`
   input PokemonInput {
     name: String!
     description: String
-    types: [String!]
+    types: [String]
     image: String!
   }
 
