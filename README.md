@@ -1,3 +1,39 @@
+# Project 3 - Pokedex with PokeApi
+
+Collaborating within a group to create an interactive Full-Stack React Application. Relive your nostalgic memories by capturing your favorite pokemon all over again.
+
+---
+
+## Packages and Technologies
+
+![badmath](https://img.shields.io/badge/Language-JavaScript-blue)
+![badmath](https://img.shields.io/badge/Registry-npm-ff69b4)
+![badmath](https://img.shields.io/badge/Enviorment-Node.js-success)
+![badmath](https://img.shields.io/badge/Framework-React-0CAADC)
+![badmath](https://img.shields.io/badge/Tech-GraphQL-blueviolet)
+
+https://graphql-pokeapi.vercel.app/
+
+
+## License
+![badmath](https://img.shields.io/badge/License-Unlicense-red)
+
+---
+
+## Questions
+
+If you have any questions please feel free to reach out to us by visiting our github pages:
+
+https://github.com/anthonynguyen-dev 
+https://github.com/Chase-Lane
+https://github.com/rajkbhakta
+https://github.com/sergluna
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
